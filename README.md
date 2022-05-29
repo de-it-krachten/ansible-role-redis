@@ -41,6 +41,7 @@ redis_settings:
   maxmemory: 100mb
   maxmemory-policy: volatile-ttl
   bind: '127.0.0.1 ::1'
+  supervised: systemd
 </pre></code>
 
 
