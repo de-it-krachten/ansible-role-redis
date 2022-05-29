@@ -1,0 +1,15 @@
+---
+
+# List of redis packages to install
+redis_packages:
+  - redis
+
+# List of services
+redis_services:
+  - redis
+
+# Dict of settings to configure
+redis_settings:
+  maxmemory: 100mb
+  maxmemory-policy: volatile-ttl
+  bind: '127.0.0.1 ::1'

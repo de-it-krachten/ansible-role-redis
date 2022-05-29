@@ -1,0 +1,33 @@
+---
+
+- name: Load variables based on OS type
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "family-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+        - "family-{{ ansible_os_family }}.yml"
+        - default.yml
+      paths:
+        - "vars"
+
+- name: Install redis packages
+  package:
+    name: "{{ redis_packages }}"
+    state: present
+
+- name: Enable redis services
+  service:
+    name: "{{ item }}"
+    enabled: true
+  loop: "{{ redis_services }}"
+
+- name: Configure redis
+  lineinfile:
+    path: "{{ redis_conf }}"
+    regexp: "(# )?{{ item.key }} .*"
+    line:   "{{ item.key }} {{ item.value if item.value is string else item.value|join(', ') }}"
+  notify: Restart redis
+  loop: "{{ redis_settings | dict2items }}"

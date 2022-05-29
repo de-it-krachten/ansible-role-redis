@@ -1,0 +1,6 @@
+---
+
+- name: Restart redis
+  service:
+    name: "{{ redis_services[0] }}"
+    state: restarted
