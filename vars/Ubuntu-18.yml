@@ -1,0 +1,8 @@
+---
+
+# redis configuration
+redis_conf: /etc/redis/redis.conf
+
+# Dict of settings to configure
+redis_settings_overwrite:
+  bind: '127.0.0.1'

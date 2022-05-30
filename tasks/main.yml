@@ -24,6 +24,11 @@
     enabled: true
   loop: "{{ redis_services }}"
 
+- name: Merge default + overwrite settings
+  set_fact:
+    redis_settings: "{{ redis_settings_overwrite | combine(redis_settings_overwrite, recursive=True) }}"
+  when: redis_settings_overwrite is defined
+
 - name: Configure redis
   lineinfile:
     path: "{{ redis_conf }}"
