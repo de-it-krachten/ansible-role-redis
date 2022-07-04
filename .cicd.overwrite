@@ -6,6 +6,3 @@ generic:
   role_short: redis
   role_description: |
     Installs & manages redis
-
-github:
-  fail_fast: false
