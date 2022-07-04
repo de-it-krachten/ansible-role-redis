@@ -5,28 +5,31 @@
 
 Installs & manages redis
 
-
-Platforms
---------------
+## Platforms
 
 Supported platforms
 
 - Red Hat Enterprise Linux 7<sup>1</sup>
 - Red Hat Enterprise Linux 8<sup>1</sup>
+- Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
-- AlmaLinux 8<sup>1</sup>
+- OracleLinux 8
+- AlmaLinux 8
+- AlmaLinux 9
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
+- Fedora 35
+- Fedora 36
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
 
-Role Variables
---------------
+## Role Variables
+### defaults/main.yml
 <pre><code>
 # List of redis packages to install
 redis_packages:
@@ -44,10 +47,32 @@ redis_settings:
   supervised: systemd
 </pre></code>
 
+### vars/Ubuntu-18.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis/redis.conf
 
-Example Playbook
-----------------
+# Dict of settings to configure
+redis_settings_overwrite:
+  bind: '127.0.0.1'
+</pre></code>
 
+### vars/family-RedHat.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis.conf
+</pre></code>
+
+### vars/family-Debian.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis/redis.conf
+</pre></code>
+
+
+
+## Example Playbook
+### molecule/default/converge.yml
 <pre><code>
 - name: sample playbook for role 'redis'
   hosts: all
