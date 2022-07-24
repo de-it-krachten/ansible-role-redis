@@ -14,6 +14,7 @@ Supported platforms
 - Red Hat Enterprise Linux 8<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
+- RockyLinux 9
 - OracleLinux 8
 - AlmaLinux 8
 - Debian 10 (Buster)
@@ -73,7 +74,7 @@ redis_conf: /etc/redis/redis.conf
 <pre><code>
 - name: sample playbook for role 'redis'
   hosts: all
-  vars:
+  become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'redis'
       include_role:
