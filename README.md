@@ -12,11 +12,13 @@ Supported platforms
 
 - Red Hat Enterprise Linux 7<sup>1</sup>
 - Red Hat Enterprise Linux 8<sup>1</sup>
+- Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
 - RockyLinux 9
 - OracleLinux 8
 - AlmaLinux 8
+- AlmaLinux 9
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
@@ -62,6 +64,12 @@ redis_conf: /etc/redis.conf
 </pre></code>
 
 ### vars/family-Debian.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis/redis.conf
+</pre></code>
+
+### vars/family-RedHat-9.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf

@@ -8,12 +8,6 @@ generic:
     Installs & manages redis
 
 platforms:
-  rhel9:
-    ci: false
-    supported: false
-  almalinux9:
-    ci: false
-    supported: false
   fedora35:
     ci: false
     supported: false
