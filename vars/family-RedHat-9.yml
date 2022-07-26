@@ -1,0 +1,4 @@
+---
+
+# redis configuration
+redis_conf: /etc/redis/redis.conf

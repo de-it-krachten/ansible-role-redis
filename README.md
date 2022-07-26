@@ -66,6 +66,12 @@ redis_conf: /etc/redis.conf
 redis_conf: /etc/redis/redis.conf
 </pre></code>
 
+### vars/family-RedHat-9.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis/redis.conf
+</pre></code>
+
 
 
 ## Example Playbook
@@ -73,7 +79,7 @@ redis_conf: /etc/redis/redis.conf
 <pre><code>
 - name: sample playbook for role 'redis'
   hosts: all
-  vars:
+  become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'redis'
       include_role:
