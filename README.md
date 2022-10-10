@@ -6,6 +6,15 @@
 Installs & manages redis
 
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+
 ## Platforms
 
 Supported platforms
@@ -43,6 +52,7 @@ redis_settings:
   bind: '127.0.0.1 ::1'
   supervised: systemd
 </pre></code>
+
 
 ### vars/Ubuntu-18.yml
 <pre><code>
@@ -82,6 +92,6 @@ redis_conf: /etc/redis/redis.conf
   become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'redis'
-      include_role:
+      ansible.builtin.include_role:
         name: redis
 </pre></code>

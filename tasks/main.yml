@@ -1,7 +1,7 @@
 ---
 
 - name: Load variables based on OS type
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -14,25 +14,25 @@
         - "vars"
 
 - name: Install redis packages
-  package:
+  ansible.builtin.package:
     name: "{{ redis_packages }}"
     state: present
 
 - name: Enable redis services
-  service:
+  ansible.builtin.service:
     name: "{{ item }}"
     enabled: true
   loop: "{{ redis_services }}"
 
 - name: Merge default + overwrite settings
-  set_fact:
+  ansible.builtin.set_fact:
     redis_settings: "{{ redis_settings_overwrite | combine(redis_settings_overwrite, recursive=True) }}"
   when: redis_settings_overwrite is defined
 
 - name: Configure redis
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ redis_conf }}"
     regexp: "(# )?{{ item.key }} .*"
-    line:   "{{ item.key }} {{ item.value if item.value is string else item.value|join(', ') }}"
+    line: "{{ item.key }} {{ item.value if item.value is string else item.value | join(', ') }}"
   notify: Restart redis
   loop: "{{ redis_settings | dict2items }}"
