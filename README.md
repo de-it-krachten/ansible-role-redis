@@ -89,7 +89,7 @@ redis_conf: /etc/redis/redis.conf
 <pre><code>
 - name: sample playbook for role 'redis'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   tasks:
     - name: Include role 'redis'
       ansible.builtin.include_role:
