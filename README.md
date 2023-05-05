@@ -54,6 +54,12 @@ redis_settings:
 </pre></code>
 
 
+### vars/family-Debian.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis/redis.conf
+</pre></code>
+
 ### vars/Ubuntu-18.yml
 <pre><code>
 # redis configuration
@@ -64,22 +70,16 @@ redis_settings_overwrite:
   bind: '127.0.0.1'
 </pre></code>
 
-### vars/family-RedHat.yml
-<pre><code>
-# redis configuration
-redis_conf: /etc/redis.conf
-</pre></code>
-
-### vars/family-Debian.yml
-<pre><code>
-# redis configuration
-redis_conf: /etc/redis/redis.conf
-</pre></code>
-
 ### vars/family-RedHat-9.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
+</pre></code>
+
+### vars/family-RedHat.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis.conf
 </pre></code>
 
 
@@ -89,7 +89,7 @@ redis_conf: /etc/redis/redis.conf
 <pre><code>
 - name: sample playbook for role 'redis'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   tasks:
     - name: Include role 'redis'
       ansible.builtin.include_role:

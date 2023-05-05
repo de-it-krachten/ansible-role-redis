@@ -17,9 +17,12 @@ platforms:
   almalinux9:
     ci: false
     supported: false
-  fedora35:
+  oraclelinux9:
     ci: false
     supported: false
   fedora36:
+    ci: false
+    supported: false
+  fedora37:
     ci: false
     supported: false
