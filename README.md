@@ -25,9 +25,11 @@ Supported platforms
 - RockyLinux 8
 - OracleLinux 8
 - AlmaLinux 8
-- Debian 10 (Buster)
+- SUSE Linux Enterprise 15<sup>1</sup>
+- openSUSE Leap 15
+- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
-- Ubuntu 18.04 LTS
+- Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 
@@ -53,14 +55,13 @@ redis_settings:
   supervised: systemd
 </pre></code>
 
-
-### vars/family-Debian.yml
+### defaults/family-Debian.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
 </pre></code>
 
-### vars/Ubuntu-18.yml
+### defaults/Ubuntu-18.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
@@ -70,17 +71,24 @@ redis_settings_overwrite:
   bind: '127.0.0.1'
 </pre></code>
 
-### vars/family-RedHat-9.yml
+### defaults/family-RedHat-9.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
 </pre></code>
 
-### vars/family-RedHat.yml
+### defaults/family-Suse.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis.conf
 </pre></code>
+
+### defaults/family-RedHat.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis.conf
+</pre></code>
+
 
 
 
