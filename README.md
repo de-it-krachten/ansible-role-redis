@@ -21,12 +21,14 @@ Supported platforms
 
 - Red Hat Enterprise Linux 7<sup>1</sup>
 - Red Hat Enterprise Linux 8<sup>1</sup>
+- Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
+- RockyLinux 9
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
-- SUSE Linux Enterprise 15<sup>1</sup>
-- openSUSE Leap 15
+- AlmaLinux 9
 - Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
@@ -51,7 +53,8 @@ redis_services:
 redis_settings:
   maxmemory: 100mb
   maxmemory-policy: volatile-ttl
-  bind: '127.0.0.1 ::1'
+  # bind: '127.0.0.1 ::1'
+  bind: "127.0.0.1"
   supervised: systemd
 </pre></code>
 
@@ -79,8 +82,16 @@ redis_conf: /etc/redis/redis.conf
 
 ### defaults/family-Suse.yml
 <pre><code>
+# List of redis packages to install
+redis_packages:
+  - redis7
+
 # redis configuration
-redis_conf: /etc/redis.conf
+redis_conf: /etc/redis/default.conf
+
+# List of services
+redis_services:
+  - redis@default
 </pre></code>
 
 ### defaults/family-RedHat.yml

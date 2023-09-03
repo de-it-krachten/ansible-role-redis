@@ -10,14 +10,11 @@ generic:
 platforms:
   rhel9:
     ci: false
-    supported: false
-  rockylinux9:
+    supported: true
+  opensuse15:
     ci: false
     supported: false
-  almalinux9:
-    ci: false
-    supported: false
-  oraclelinux9:
+  sles15:
     ci: false
     supported: false
   fedora37:

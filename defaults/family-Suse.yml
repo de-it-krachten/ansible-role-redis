@@ -1,4 +1,12 @@
 ---
 
+# List of redis packages to install
+redis_packages:
+  - redis7
+
 # redis configuration
-redis_conf: /etc/redis.conf
+redis_conf: /etc/redis/default.conf
+
+# List of services
+redis_services:
+  - redis@default

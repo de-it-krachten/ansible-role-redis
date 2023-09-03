@@ -8,10 +8,20 @@
     name: "{{ redis_packages }}"
     state: present
 
+- name: Create basic configuration file from exmaple
+  ansible.builtin.copy:
+    src: /etc/redis/default.conf.example
+    dest: "{{ redis_conf }}"
+    mode: "0644"
+    remote_src: true
+    force: false
+  when: ansible_os_family == 'Suse'
+
 - name: Enable redis services
   ansible.builtin.service:
     name: "{{ item }}"
     enabled: true
+  notify: Restart redis
   loop: "{{ redis_services }}"
 
 - name: Merge default + overwrite settings
