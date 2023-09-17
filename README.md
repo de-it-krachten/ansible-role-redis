@@ -21,13 +21,17 @@ Supported platforms
 
 - Red Hat Enterprise Linux 7<sup>1</sup>
 - Red Hat Enterprise Linux 8<sup>1</sup>
+- Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
+- RockyLinux 9
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
-- Debian 10 (Buster)
+- AlmaLinux 9
+- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
-- Ubuntu 18.04 LTS
+- Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 
@@ -49,18 +53,18 @@ redis_services:
 redis_settings:
   maxmemory: 100mb
   maxmemory-policy: volatile-ttl
-  bind: '127.0.0.1 ::1'
+  # bind: '127.0.0.1 ::1'
+  bind: "127.0.0.1"
   supervised: systemd
 </pre></code>
 
-
-### vars/family-Debian.yml
+### defaults/family-Debian.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
 </pre></code>
 
-### vars/Ubuntu-18.yml
+### defaults/Ubuntu-18.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
@@ -70,17 +74,32 @@ redis_settings_overwrite:
   bind: '127.0.0.1'
 </pre></code>
 
-### vars/family-RedHat-9.yml
+### defaults/family-RedHat-9.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
 </pre></code>
 
-### vars/family-RedHat.yml
+### defaults/family-Suse.yml
+<pre><code>
+# List of redis packages to install
+redis_packages:
+  - redis7
+
+# redis configuration
+redis_conf: /etc/redis/default.conf
+
+# List of services
+redis_services:
+  - redis@default
+</pre></code>
+
+### defaults/family-RedHat.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis.conf
 </pre></code>
+
 
 
 

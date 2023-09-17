@@ -1,27 +1,27 @@
 ---
 
 - name: Load variables based on OS type
-  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
-  vars:
-    params:
-      files:
-        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-        - "{{ ansible_distribution }}.yml"
-        - "family-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
-        - "family-{{ ansible_os_family }}.yml"
-        - default.yml
-      paths:
-        - "vars"
+  ansible.builtin.include_tasks: vars.yml
 
 - name: Install redis packages
   ansible.builtin.package:
     name: "{{ redis_packages }}"
     state: present
 
+- name: Create basic configuration file from exmaple
+  ansible.builtin.copy:
+    src: /etc/redis/default.conf.example
+    dest: "{{ redis_conf }}"
+    mode: "0644"
+    remote_src: true
+    force: false
+  when: ansible_os_family == 'Suse'
+
 - name: Enable redis services
   ansible.builtin.service:
     name: "{{ item }}"
     enabled: true
+  notify: Restart redis
   loop: "{{ redis_services }}"
 
 - name: Merge default + overwrite settings
