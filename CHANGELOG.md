@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.2.0...v1.3.0) (2023-09-17)
+
+
+### Bug Fixes
+
+* Fix loop label to string ([d6d7d41](https://github.com/de-it-krachten/ansible-role-redis/commit/d6d7d4121dae3103769560ab4163bd20fbd7437d))
+
+
+### Features
+
+* Update supported platforms & CI ([249064f](https://github.com/de-it-krachten/ansible-role-redis/commit/249064f827107fd4fd67dfd433a2c2e9053dc285))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.1.0...v1.2.0) (2022-10-12)
 
 
