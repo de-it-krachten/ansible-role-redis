@@ -13,7 +13,7 @@ Installs & manages redis
 None
 
 #### Collections
-- community.general
+None
 
 ## Platforms
 
@@ -29,11 +29,11 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
+- Ubuntu 24.04 LTS
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -64,20 +64,16 @@ redis_settings:
 redis_conf: /etc/redis/redis.conf
 </pre></code>
 
-### defaults/Ubuntu-18.yml
-<pre><code>
-# redis configuration
-redis_conf: /etc/redis/redis.conf
-
-# Dict of settings to configure
-redis_settings_overwrite:
-  bind: '127.0.0.1'
-</pre></code>
-
 ### defaults/family-RedHat-9.yml
 <pre><code>
 # redis configuration
 redis_conf: /etc/redis/redis.conf
+</pre></code>
+
+### defaults/family-RedHat.yml
+<pre><code>
+# redis configuration
+redis_conf: /etc/redis.conf
 </pre></code>
 
 ### defaults/family-Suse.yml
@@ -94,10 +90,14 @@ redis_services:
   - redis@default
 </pre></code>
 
-### defaults/family-RedHat.yml
+### defaults/Ubuntu-18.yml
 <pre><code>
 # redis configuration
-redis_conf: /etc/redis.conf
+redis_conf: /etc/redis/redis.conf
+
+# Dict of settings to configure
+redis_settings_overwrite:
+  bind: '127.0.0.1'
 </pre></code>
 
 
@@ -108,7 +108,7 @@ redis_conf: /etc/redis.conf
 <pre><code>
 - name: sample playbook for role 'redis'
   hosts: all
-  become: "yes"
+  become: 'yes'
   tasks:
     - name: Include role 'redis'
       ansible.builtin.include_role:
