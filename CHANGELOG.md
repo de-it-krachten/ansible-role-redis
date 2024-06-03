@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.3.0...v1.4.0) (2024-06-03)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([40e2731](https://github.com/de-it-krachten/ansible-role-redis/commit/40e273112902f6fffdd06a1db7ec464d2c26d147))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.2.0...v1.3.0) (2023-09-17)
 
 
