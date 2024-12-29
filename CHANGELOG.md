@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.4.0...v1.5.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([df114a1](https://github.com/de-it-krachten/ansible-role-redis/commit/df114a119b1fb085f5be1695f52695447d1b91d1))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.3.0...v1.4.0) (2024-06-03)
 
 
