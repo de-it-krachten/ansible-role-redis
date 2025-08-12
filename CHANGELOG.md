@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.5.0...v1.6.0) (2025-08-12)
+
+
+### Features
+
+* Add support for Debian 13 (Trixie) ([0697896](https://github.com/de-it-krachten/ansible-role-redis/commit/0697896fbd3cc1888d783781d26c3b84a7fa9b10))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.4.0...v1.5.0) (2024-12-29)
 
 
