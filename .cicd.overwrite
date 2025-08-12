@@ -8,18 +8,27 @@ generic:
     Installs & manages redis
 
 platforms:
-  rhel9:
+  rhel10:
     ci: false
-    supported: true
+    supported: false
+  rockylinux10:
+    ci: false
+    supported: false
+  almalinux10:
+    ci: false
+    supported: false
+  oraclelinux10:
+    ci: false
+    supported: false
   opensuse15:
     ci: false
     supported: false
   sles15:
     ci: false
     supported: false
-  fedora40:
+  fedora41:
     ci: false
     supported: false
-  fedora41:
+  fedora42:
     ci: false
     supported: false
