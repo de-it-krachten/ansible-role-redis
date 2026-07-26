@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.6.0...v1.7.0) (2026-07-26)
+
+
+### Bug Fixes
+
+* Standarize vars.yml ([40aad7f](https://github.com/de-it-krachten/ansible-role-redis/commit/40aad7f7f0a9b5862aaa226d8a78fdd875a430c5))
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([a446308](https://github.com/de-it-krachten/ansible-role-redis/commit/a446308861fcd7533ce96dc670e937c0b34e9df0))
+* Added support for Ubuntu 26.04 LTS ([57fbcba](https://github.com/de-it-krachten/ansible-role-redis/commit/57fbcba93043b0cd6ab6d2c4fd496b6c14487924))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.5.0...v1.6.0) (2025-08-12)
 
 
