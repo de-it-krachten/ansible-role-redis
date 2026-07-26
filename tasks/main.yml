@@ -15,7 +15,7 @@
     mode: "0644"
     remote_src: true
     force: false
-  when: ansible_os_family == 'Suse'
+  when: ansible_facts.os_family == 'Suse'
 
 - name: Enable redis services
   ansible.builtin.service:
