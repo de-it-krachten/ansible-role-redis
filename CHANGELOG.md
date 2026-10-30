@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.7.0...v1.8.0) (2026-10-30)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([cf67dfa](https://github.com/de-it-krachten/ansible-role-redis/commit/cf67dfa5b3f43819c9d6cab22137b933568e9a9a))
+
 # [1.7.0](https://github.com/de-it-krachten/ansible-role-redis/compare/v1.6.0...v1.7.0) (2026-07-26)
 
 
